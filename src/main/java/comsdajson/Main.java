@@ -28,7 +28,6 @@ public class Main {
             System.out.println(personStr);
             // do pliku person.json zapisać wynikowego stringa
             Files.write(Paths.get("person.json"), personStr.getBytes());
-            mapper.writeValue(new File("person4.json"), person);
 
             File personFile = new File("person.json");
 
