@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -27,7 +28,12 @@ public class Main {
             System.out.println(personStr);
             // do pliku person.json zapisać wynikowego stringa
             Files.write(Paths.get("person.json"), personStr.getBytes());
-            mapper.writeValue(new File("person2.json"), person);
+            mapper.writeValue(new File("person4.json"), person);
+
+            File personFile = new File("person.json");
+
+            Person person4 = mapper.readValue(new File("person.json"), Person.class);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,6 +46,7 @@ public class Main {
 
         try {
             String personList = mapper.writeValueAsString(lista);
+            System.out.println(personList);
             Files.write(Paths.get("personList.json"), personList.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,6 +65,7 @@ public class Main {
 
         try {
             String studentList1 = mapper.writeValueAsString(studentList);
+            System.out.println(studentList1);
             Files.write(Paths.get("studnetList.json"), studentList1.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
